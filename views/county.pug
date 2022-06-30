@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 State historical markers in #{county} North Carolina
+    ul
+      each marker in markers
+        li
+          a(href=`../${marker.markerID}`) 
+            =`${marker.markerID} - ${marker.title}`

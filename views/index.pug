@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1 #{marker.title}
+
+  a(href="./counties") Return to full list by county
+
+  p #{marker.markerText}
+  p Location:  #{marker.location}
+  p 
+    a(href='./county/'+marker.county) #{marker.county}
+
+  if marker.stdPics
+    each picURL in marker.stdPics
+      p
+        img(src=`${picURL}`)
+
+  if marker.cPics
+    each picURL in marker.cPics
+      p
+        img(src=`${picURL}`)
+
+
+  if marker.essay
+    h2 Essay
+    p !{marker.essay}
