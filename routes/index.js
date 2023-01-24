@@ -4,9 +4,10 @@ var express = require('express');
 const { request } = require('../app');
 var router = express.Router();
 
-const DB = 'nc-markers'
-const COLLECTION = 'markers'
-const URL = 'mongodb://localhost:27017'
+const DB = process.env.DB || 'nc-markers'
+const COLLECTION = process.env.COLLECTION || 'markers'
+const URL = process.env.URL || 'mongodb://localhost:27017'
+
 
 async function getCollection() {
   const mongo = new MongoClient(URL)
