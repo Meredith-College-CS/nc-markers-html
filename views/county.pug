@@ -1,9 +1,14 @@
 extends layout
 
 block content
-  h1 State historical markers in #{county} North Carolina
-    ul
-      each marker in markers
-        li
-          a(href=`../${marker.markerID}`) 
-            =`${marker.markerID} - ${marker.title}`
+  h1 State historical markers in #{county} County, North Carolina
+  p
+  ul
+    each marker in markers
+      li
+        a(href=`../marker/${marker.markerID}`) 
+          =`${marker.markerID} - ${marker.title}`
+  p
+  a(href="../") Return to list of counties
+  p
+

@@ -3,12 +3,12 @@ extends layout
 block content
   h1 #{marker.title}
 
-  a(href="./counties") Return to full list by county
+  a(href="../") Return to list of counties
 
   p #{marker.markerText}
   p Location:  #{marker.location}
   p 
-    a(href='./county/'+marker.county) #{marker.county}
+    a(href='../county/'+marker.county) #{marker.county}
 
   if marker.stdPics
     each picURL in marker.stdPics

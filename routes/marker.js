@@ -26,7 +26,7 @@ async function getOneDoc(coll, id) {
 router.get('/:markerID', async function(req, res, next) {
   const markersColl = await getCollection()
   const markerDoc = await getOneDoc(markersColl, req.params.markerID)
-  res.render('index', { title: 'North Carolina Historical Markers', marker: markerDoc });
+  res.render('marker', { title: 'North Carolina Historical Markers', marker: markerDoc });
 });
 
 module.exports = router;
