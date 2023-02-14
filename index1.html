@@ -35,9 +35,20 @@
   border: 1px solid #ccc;
   border-top: none;
 }
+.logo {
+	float: left;
+	height: 50px;
+}
+body {
+	background-image: url("mountains.jpg");
+	background-size: cover;
+}
+.search {
+background-color: #f1f1f1;
+}
 </style>
 <script>
-function search(evt, option) {
+function search(evt, cityName) {
   // Declare all variables
   var i, tabcontent, tablinks;
 
@@ -54,22 +65,24 @@ function search(evt, option) {
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(option).style.display = "block";
+  document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
 </script>
 <html>
 <body>
- <h1>Welcome to North Carolina Historical Markers! </h1>
- <h3>Please use the search options below to find a historical marker:</h3>
 <!-- Tab links -->
 <div class="tab">
+	<a href="index1.html"><img class="logo" src="NC_logo.png"></a>
   <button class="tablinks" onclick="search(event, 'keyword')">Keyword</button>
   <button class="tablinks" onclick="search(event, 'county')">County</button>
   <button class="tablinks" onclick="search(event, 'zipcode')">Zipcode</button>
   <button class="tablinks" onclick="search(event, 'markerID')">Marker ID/Title</button>
 </div>
-
+<section class="search">
+<h1>Welcome to North Carolina Historical Markers! </h1>
+<p>Please use the search options below to find a historical marker:</p>
+<img src="">
 <!-- Tab content -->
 <div id="keyword" class="tabcontent">
   <h3>Keyword</h3>
@@ -112,6 +125,6 @@ function search(evt, option) {
             <input type="reset" value="Clear All">
         </form>
 </div>
-
+</section>
 </body>
 </html>
