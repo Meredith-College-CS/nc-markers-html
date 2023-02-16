@@ -97,13 +97,21 @@ function search(evt, cityName) {
 <div id="county" class="tabcontent">
   <h3>County</h3>
   	<form action="/form/sumbit">
-            <label>County or City: </label>
-            <select name="county/city" class="search">
+            <label>County: </label>
+            <select name="county" class="search">
               <option value="none">-None-</option>
             </select>
             <input type="submit" name="search" class="submit" value="Search"/>
             <input type="reset" value="Clear All">
     </form>
+    <form action="/form/sumbit">
+      <label>City: </label>
+      <select name="city" class="search">
+        <option value="none">-None-</option>
+      </select>
+      <input type="submit" name="search" class="submit" value="Search"/>
+      <input type="reset" value="Clear All">
+</form>
 </div>
 
 <div id="zipcode" class="tabcontent">
