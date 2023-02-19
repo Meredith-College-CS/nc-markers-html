@@ -10,6 +10,7 @@ var markerRouter = require('./routes/marker');
 var usersRouter = require('./routes/users');
 var countiesRouter = require('./routes/counties');
 var countyRouter = require('./routes/county');
+var formRouter = require('./routes/form');
 
 var app = express();
 
@@ -23,11 +24,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/', function(req, res) {
+  res.redirect(307, '/index1.html');
+});
+
 app.use('/counties', countiesRouter);
 app.use('/county', countyRouter);
 app.use('/marker', markerRouter);
+app.use('/form', formRouter);
 app.use('/users', usersRouter);
-app.use('/', countiesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
