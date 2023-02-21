@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<style>
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+.logo {
+	float: left;
+	height: 50px;
+}
+body {
+	background-image: url("mountains.jpg");
+	background-size: cover;
+}
+.search {
+background-color: #f1f1f1;
+}
+</style>
+<script>
+function search(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+<html>
+<body>
+<!-- Tab links -->
+<div class="tab">
+	<a href="https://www.ncdcr.gov/"><img class="logo" src="NC_logo.png"></a>
+  <button class="tablinks" onclick="search(event, 'keyword')">Keyword</button>
+  <button class="tablinks" onclick="search(event, 'county')">County/City</button>
+  <button class="tablinks" onclick="search(event, 'zipcode')">Zipcode</button>
+  <button class="tablinks" onclick="search(event, 'markerID')">Marker ID/Title</button>
+</div>
+<section class="search">
+<h1>Welcome to North Carolina Historical Markers! </h1>
+<p>Please use the search options to find a historical marker</p>
+<img src="">
+<!-- Tab content -->
+<div id="keyword" class="tabcontent">
+  <h3>Keyword</h3>
+  	 <form action="/form/submit" method="GET"> 
+            <label>Keyword: </label>
+            <input type="text" name="Keyword" class="search">
+            <input type="submit" name="submit" class="submit" value="Search">
+            <input type="reset" value="Clear All">
+    </form>
+</div>
+
+<div id="county" class="tabcontent">
+  <h3>County or City</h3>
+  	<form action="/form/sumbit">
+            <label>County: </label>
+            <select name="county" class="search">
+              <option value="none">-None-</option>
+            </select>
+            <input type="submit" name="search" class="submit" value="Search"/>
+            <input type="reset" value="Clear All">
+    </form>
+    
+    <form action="/form/sumbit">
+      <label>City: </label>
+      <select name="city" class="search">
+        <option value="none">-None-</option>
+      </select>
+      <input type="submit" name="search" class="submit" value="Search"/>
+      <input type="reset" value="Clear All">
+</form>
+</div>
+
+<div id="zipcode" class="tabcontent">
+  <h3>Zipcode</h3>
+  	<form action="/form/submit" method="GET"> 
+            <label>Zipcode: </label>
+            <input type="text" name="zipcode" class="search">
+            <input type="submit" name="submit" class="submit" value="Search">
+            <input type="reset" value="Clear All">
+    </form>
+</div>
+
+<div id="markerID" class="tabcontent">
+  <h3>Marker ID/Title</h3>
+  		<form action="form/searchById/submit" method="GET"> 
+            <label>Marker Number: </label>
+            <input type="text" name="markerid" class="search">
+            <input type="submit" name="submit" class="submit" value="Search">
+            <input type="reset" value="Clear All">
+        </form>
+</div>
+</section>
+</body>
+</html>
