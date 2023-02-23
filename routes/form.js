@@ -1,14 +1,18 @@
-const assert = require('assert');
+const assert = require("assert");
 
-var express = require('express');
-const { request } = require('../app');
+var express = require("express");
+const { request } = require("../app");
 
 var router = express.Router();
 
 /* Form to search for marker ID: just gather query parameter for use in redirect. */
-router.get('/searchById/submit', async function(req, res, next) {
+router.get("/searchById/submit", async function (req, res, next) {
   var tgtURL = `/marker/${req.query.markerid.toUpperCase()}`;
   res.redirect(307, tgtURL);
 });
 
+router.get("/markersInCounty/submit", async function (req, res, next) {
+  var mURL = `/county/${req.query.county}`;
+  res.redirect(307, mURL);
+});
 module.exports = router;
