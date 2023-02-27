@@ -17,4 +17,9 @@ router.get('/searchByKey/submit', async function(req, res, next) {
   res.redirect(307, tgtURL);
 });
 
+router.get('/markersInCounty/submit', async function(req, res, next) {
+  var mURL = `/county/${req.query.county}`;
+  res.redirect(307, mURL);
+});
+  
 module.exports = router;

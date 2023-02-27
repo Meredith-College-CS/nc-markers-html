@@ -12,6 +12,7 @@ var countiesRouter = require('./routes/counties');
 var countyRouter = require('./routes/county');
 var formRouter = require('./routes/form');
 var keywordRouter = require('./routes/keyword');
+var apiRouter = require('./routes/api');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/keyword', keywordRouter);
 app.use('/marker', markerRouter);
 app.use('/form', formRouter);
 app.use('/users', usersRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
