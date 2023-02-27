@@ -22,6 +22,7 @@ async function getOneDoc(coll, id) {
   return markerDoc
 }
 
+
 /* GET home page. */
 router.get('/:markerID', async function(req, res, next) {
   const markersColl = await getCollection()
