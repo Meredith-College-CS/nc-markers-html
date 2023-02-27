@@ -11,6 +11,7 @@ var usersRouter = require('./routes/users');
 var countiesRouter = require('./routes/counties');
 var countyRouter = require('./routes/county');
 var formRouter = require('./routes/form');
+var keywordRouter = require('./routes/keyword');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.get('/', function(req, res) {
 
 app.use('/counties', countiesRouter);
 app.use('/county', countyRouter);
+app.use('/keyword', keywordRouter);
 app.use('/marker', markerRouter);
 app.use('/form', formRouter);
 app.use('/users', usersRouter);

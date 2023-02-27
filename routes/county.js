@@ -29,7 +29,7 @@ async function getMarkersInCounty(coll, county) {
   const countyMarkers = await countyMarkerCursor.toArray()
   return countyMarkers
 }
-
+  
 /* GET home page. */
 router.get('/:county', async function(req, res, next) {
   const markersColl = await getCollection()

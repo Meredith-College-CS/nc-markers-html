@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 State historical markers containing keyword #{keyword}, North Carolina
+  p
+  ul
+    each marker in markers
+      li
+        a(href=`../marker/${marker.markerID}`) 
+          =`${marker.markerID} - ${marker.title}`
+  p
+  a(href="../") Return to search page
+  p
+
