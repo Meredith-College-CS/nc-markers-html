@@ -118,7 +118,7 @@ function search(evt, cityName) {
             return response.json();
           })
           .then((counties) => {
-            // Put your logic to update the dropdown here.
+            // update the dropdown 
             jQuery.each( counties, function( index, county ) {
  
               $('#countydp').append(`<option value="${county}">
