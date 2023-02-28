@@ -70,6 +70,9 @@ function search(evt, cityName) {
 }
 </script>
 <html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
 <body>
 <!-- Tab links -->
 <div class="tab">
@@ -98,17 +101,61 @@ function search(evt, cityName) {
   <h3>County or City</h3>
   	<form action="/form/markersInCounty/submit">
             <label>County: </label>
-            <select name="county" class="search">
-              <option value="none">-None-</option>
+            <select id="countydp" name="county" class="search">
             </select>
             <input type="submit" name="search" class="submit" value="Search"/>
             <input type="reset" value="Clear All">
     </form>
+
+      <!-- display county drop down menu-->
+      <script>
+
+          fetch("api/counties")  
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error, status = ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((counties) => {
+            // Put your logic to update the dropdown here.
+            jQuery.each( counties, function( index, county ) {
+ 
+              $('#countydp').append(`<option value="${county}">
+                        ${county}
+                   </option>`); });
+
+            console.log(counties);
+
+          })
+          .catch((error) => {
+            const p = document.createElement("p");
+            p.appendChild(document.createTextNode(`Error: ${error.message}`));
+            document.body.append(p);
+          });
+
+        /*
+        const counties = ["Wake", "Orange", "Alamance"];
+
+        jQuery.each( counties, function( index, county ) {
+ 
+ $('#countydp').append(`<option value="${county}">
+           ${county}
+      </option>`); });
+      */
+
+         
+
+         
+
+      </script>
     
     <form action="/form/submit">
       <label>City: </label>
       <select name="city" class="search">
         <option value="none">-None-</option>
+        </select>
+
       </select>
       <input type="submit" name="search" class="submit" value="Search"/>
       <input type="reset" value="Clear All">
