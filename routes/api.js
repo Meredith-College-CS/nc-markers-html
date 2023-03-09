@@ -17,25 +17,31 @@ async function getCollection() {
   return collection = db.collection(COLLECTION)
 }
 
-async function getMarkersInCounty(coll, county) {
-  const select = [
+async function getListOfCounties(coll) {
+  const agg = [
     {
-      '$match': {
-        county: county
+      '$group': {
+        '_id': '$county'
+      }
+    }, {
+      '$sort': {
+        '_id': 1
       }
     }
-  ]
-  const countyMarkerCursor = coll.aggregate(select)
-  const countyMarkers = await countyMarkerCursor.toArray()
-  return countyMarkers
+  ];
+  const countiesCursor = coll.aggregate(agg)
+  const counties = await countiesCursor.toArray()
+  return counties
 }
-  
-/* GET home page. */
-router.get('/:county', async function(req, res, next) {
-  const markersColl = await getCollection()
-  const countyMarkers = await getMarkersInCounty(markersColl,  req.params.county)
 
-  res.render('county', { county: req.params.county, markers: countyMarkers });
+/* GET counties list. */
+router.get('/counties', async function(req, res, next) {
+  const markersColl = await  getCollection()
+  const countiesMongo = await getListOfCounties(markersColl)
+  const counties = countiesMongo.map(element => {
+    return element._id
+  });
+  res.json(counties);
 });
 
 module.exports = router;

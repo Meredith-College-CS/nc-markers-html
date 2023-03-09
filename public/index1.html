@@ -70,6 +70,9 @@ function search(evt, cityName) {
 }
 </script>
 <html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
 <body>
 <!-- Tab links -->
 <div class="tab">
@@ -86,9 +89,9 @@ function search(evt, cityName) {
 <!-- Tab content -->
 <div id="keyword" class="tabcontent">
   <h3>Keyword</h3>
-  	 <form action="/form/submit" method="GET"> 
+  	 <form action="/form/searchByKey/submit" method="GET"> 
             <label>Keyword: </label>
-            <input type="text" name="Keyword" class="search">
+            <input type="text" name="keyword" class="search">
             <input type="submit" name="submit" class="submit" value="Search">
             <input type="reset" value="Clear All">
     </form>
@@ -96,19 +99,49 @@ function search(evt, cityName) {
 
 <div id="county" class="tabcontent">
   <h3>County or City</h3>
-  	<form action="/form/sumbit">
+  	<form action="/form/markersInCounty/submit">
             <label>County: </label>
-            <select name="county" class="search">
-              <option value="none">-None-</option>
+            <select id="countydp" name="county" class="search">
             </select>
             <input type="submit" name="search" class="submit" value="Search"/>
             <input type="reset" value="Clear All">
     </form>
+
+      <!-- display county drop down menu-->
+      <script>
+
+          fetch("api/counties")  
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error, status = ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((counties) => {
+            // update the dropdown 
+            jQuery.each( counties, function( index, county ) {
+ 
+              $('#countydp').append(`<option value="${county}">
+                        ${county}
+                   </option>`); });
+
+            console.log(counties);
+
+          })
+          .catch((error) => {
+            const p = document.createElement("p");
+            p.appendChild(document.createTextNode(`Error: ${error.message}`));
+            document.body.append(p);
+          });
+
+      </script>
     
-    <form action="/form/sumbit">
+    <form action="/form/submit">
       <label>City: </label>
       <select name="city" class="search">
         <option value="none">-None-</option>
+        </select>
+
       </select>
       <input type="submit" name="search" class="submit" value="Search"/>
       <input type="reset" value="Clear All">
