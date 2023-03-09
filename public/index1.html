@@ -3,8 +3,8 @@
 /* Style the tab */
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  background-color: #e7e5e5;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -32,12 +32,8 @@
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-top: none;
-}
-.logo {
-	float: left;
-	height: 50px;
 }
 body {
 	background-image: url("mountains.jpg");
@@ -45,6 +41,32 @@ body {
 }
 .search {
 background-color: #f1f1f1;
+}
+.home {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+.home a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+#nav-link{
+    margin-top: 28px;
+}
+.logo {
+    height: auto;
+    width: auto;
+    max-height: 72px;
+    max-width: 250px;
+}
+.home a:hover {
+  text-decoration: underline;
 }
 </style>
 <script>
@@ -74,18 +96,22 @@ function search(evt, cityName) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
+<div  class="home">
+    <a href="https://www.ncdcr.gov/"><img class="logo" src="NC_logo.png"></a>
+    <a id="nav-link" href="home.html">Home</a>
+    <a id="nav-link" href="index1.html">Search</a>
+</div>
+
+<section class="search">
+<h1>Welcome to North Carolina Historical Markers! </h1>
+<p>Please use the search options to find a historical marker</p>
 <!-- Tab links -->
 <div class="tab">
-	<a href="https://www.ncdcr.gov/"><img class="logo" src="NC_logo.png"></a>
   <button class="tablinks" onclick="search(event, 'keyword')">Keyword</button>
   <button class="tablinks" onclick="search(event, 'county')">County/City</button>
   <button class="tablinks" onclick="search(event, 'zipcode')">Zipcode</button>
   <button class="tablinks" onclick="search(event, 'markerID')">Marker ID/Title</button>
 </div>
-<section class="search">
-<h1>Welcome to North Carolina Historical Markers! </h1>
-<p>Please use the search options to find a historical marker</p>
-<img src="">
 <!-- Tab content -->
 <div id="keyword" class="tabcontent">
   <h3>Keyword</h3>
