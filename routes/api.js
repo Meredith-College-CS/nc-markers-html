@@ -44,4 +44,28 @@ router.get('/counties', async function(req, res, next) {
   res.json(counties);
 });
 
+async function getListOfMarkers(coll) {
+
+  const fields = {
+    '_id': 0,
+    'markerID': 1,
+    'title': 1
+  }
+
+  const markersCursor = coll.find({}).project(fields).sort({"markerID":1})
+  const markers = await markersCursor.toArray()
+  return markers
+}
+
+/* GET markers list. */
+router.get('/marker', async function(req, res, next) {
+  const markersColl = await  getCollection()
+  const markersMongo = await getListOfMarkers(markersColl)
+  const markers = markersMongo.map(element => {
+    return element.markerID + " " + element.title
+  });
+  res.json(markers);
+});
+
+
 module.exports = router;
