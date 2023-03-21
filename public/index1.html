@@ -122,11 +122,45 @@ function search(evt, cityName) {
   <h3>Marker ID/Title</h3>
   		<form action="form/searchById/submit" method="GET"> 
             <label>Marker Number: </label>
-            <input type="text" name="markerid" class="search">
-            <input type="submit" name="submit" class="submit" value="Search">
+            <select id="markerdp" name="markerid" class="search">
+            </select>
+            <input type="submit" name="submit" class="submit" value="Search"/>
             <input type="reset" value="Clear All">
         </form>
+
+        <!-- display marker drop down menu-->
+        <script>
+
+          fetch("api/marker")  
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error, status = ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((markers) => {
+            // update the dropdown 
+            jQuery.each( markers, function( index, marker ) {
+
+              $('#markerdp').append(`<option value="${marker.split(" ")[0]}">
+                        ${marker}
+                  </option>`); });
+
+            console.log(markers);
+
+          })
+          .catch((error) => {
+            const p = document.createElement("p");
+            p.appendChild(document.createTextNode(`Error: ${error.message}`));
+            document.body.append(p);
+          });
+
+        </script>
+
 </div>
+
+
+
 </section>
 </body>
 </html>
