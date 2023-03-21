@@ -27,6 +27,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res) {
+  res.redirect(307, '/home.html');
+});
+app.get('/search.html', function(req, res) {
   res.redirect(307, '/index1.html');
 });
 
