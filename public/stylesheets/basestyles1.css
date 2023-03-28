@@ -5,6 +5,7 @@ html {
 	background: lightblue url(mountains.jpg);
    font-family: Verdana, Geneva, sans-serif;
    height: 100%;
+   background-size: 100%;
 }
 body {
 	width: 75%;
@@ -36,6 +37,8 @@ h1 {
    font-size: 2.5em;
    color: blue;
    margin-bottom: 35px;
+   margin-left: 20px;
+   margin-right: 20px;
 }
 
 p {
