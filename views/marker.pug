@@ -1,6 +1,13 @@
 extends layout
 
 block content
+
+  //- -
+  //-   bingMapsKey = "Agc5lRxk6qqpv574eoOqw4K8FaJkbXtwo7RBxpPWw18fS_tCtL-uS2bp93HYI447"
+  
+  if !(isNaN(marker.lat) || isNaN(marker.long)) 
+    script(type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap' async=true defer=true)
+
   h1 #{marker.title}
 
   a(href="../search.html") Return to search page
@@ -9,6 +16,28 @@ block content
   p Location:  #{marker.location}
   p 
     a(href='../county/'+marker.county) #{marker.county}
+
+  if !(isNaN(marker.lat) || isNaN(marker.long)) 
+    div(id='myMap' style='position:relative;width:600px;height:400px;')
+    script(type='text/javascript').
+      function GetMap() {
+        var map = new Microsoft.Maps.Map('#myMap', {
+            credentials: '#{bingMapsKey}',
+            center: new Microsoft.Maps.Location(35.2, -80.81)
+        });
+
+        var center = map.getCenter();
+
+        //Create custom Pushpin
+        var pin = new Microsoft.Maps.Pushpin(center, {
+            title: '#{marker.markerID}',
+            subTitle: "#{marker.title}",
+            text: '1'
+        });
+
+        //Add the pushpin to the map
+        map.entities.push(pin);
+      }
 
   if marker.stdPics
     each picURL in marker.stdPics
