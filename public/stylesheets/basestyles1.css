@@ -6,6 +6,9 @@ html {
    font-family: Verdana, Geneva, sans-serif;
    height: 100%;
    background-size: 100%;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+
 }
 body {
 	width: 75%;
@@ -45,11 +48,28 @@ h1 {
    text-align: center;
 }
 
+h2 {
+   margin-left: 15px;
+}
+
 p {
 	line-height: 1.4em;
-   margin: 15px 0px;
+   margin-left: 15px;
+   margin-right: 15px;
+}
+
+ul {
+   list-style-type: none;
+   text-align: center;
 }
 
 form {
 	display: block;
+}
+
+.center {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;
 }
