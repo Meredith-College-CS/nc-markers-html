@@ -22,8 +22,8 @@ block content
     script(type='text/javascript').
       function GetMap() {
         var map = new Microsoft.Maps.Map('#myMap', {
-            credentials: '#{bingMapsKey}',
-            center: new Microsoft.Maps.Location(35.2, -80.81)
+            credentials: '#{keys.bingMapsKey}',
+            center: new Microsoft.Maps.Location(#{marker.lat}, #{marker.long})
         });
 
         var center = map.getCenter();

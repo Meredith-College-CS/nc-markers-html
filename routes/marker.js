@@ -19,8 +19,6 @@ async function getCollection() {
 async function getOneDoc(coll, id) {
   const query = { markerID: id }
   const markerDoc = await coll.findOne(query)
-  // markerDoc.lat =  35.2
-  // markerDoc.long = -80.81
   return markerDoc
 }
 
