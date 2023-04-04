@@ -75,3 +75,8 @@ form {
    margin-right: auto;
    width: 50%;
 }
+
+footer {
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+   text-align: center;
+}
