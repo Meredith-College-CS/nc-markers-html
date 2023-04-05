@@ -95,16 +95,42 @@ function search(evt, cityName) {
 
       </script>
     
-    <form action="/form/submit">
+    <form action="/form/markersInCity/submit">
       <label>City: </label>
-      <select name="city" class="search">
-        <option value="none">-None-</option>
-        </select>
-
+      <select id="citydp" name="city" class="search">
       </select>
       <input type="submit" name="search" class="submit" value="Search"/>
       <input type="reset" value="Clear All">
-</form>
+    </form>
+
+    <!-- display city drop down menu-->
+    <script>
+
+      fetch("cities/citiesDP")  
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error, status = ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((cities) => {
+        // update the dropdown 
+        jQuery.each( cities, function( index, city ) {
+
+          $('#citydp').append(`<option value="${city}">
+                    ${city}
+               </option>`); });
+
+        console.log(cities);
+
+      })
+      .catch((error) => {
+        const p = document.createElement("p");
+        p.appendChild(document.createTextNode(`Error: ${error.message}`));
+        document.body.append(p);
+      });
+
+    </script>
 </div>
 
 <div id="zipcode" class="tabcontent">

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 NC Historical Markers by County
+  p Welcome to #{title}
+
+  ul
+    each city in cities
+      li
+        a(href=`./city/${city._id}`) 
+          =`${city._id} with ${city.numMarkers} markers`
