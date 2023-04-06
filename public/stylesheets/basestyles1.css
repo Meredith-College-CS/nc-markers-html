@@ -22,7 +22,8 @@ body {
 }
 
 .logo {
-   margin-right: 500px;
+   margin-right: 400px;
+   
 }
 
 header {
@@ -73,5 +74,3 @@ form {
 .home a:hover {
  text-decoration: underline;
 }
-
-
