@@ -24,6 +24,7 @@ body {
     max-width: 1020px;  
     width: 100%;
     line-height: 1.2em;
+    position: relative;
 }
 .home {
    width: 100%;
@@ -101,7 +102,7 @@ form {
 footer {
    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
    text-align: center;
-   position: relative;
+   position: absolute;
    bottom: 0;
    left: 0;
    right: 0;
