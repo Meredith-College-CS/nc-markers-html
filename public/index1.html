@@ -41,8 +41,8 @@ function search(evt, cityName) {
 <!-- Tab links -->
 <div class="tab">
   <button class="tablinks" onclick="search(event, 'keyword')">Keyword</button>
-  <button class="tablinks" onclick="search(event, 'county')">County/City</button>
-  <button class="tablinks" onclick="search(event, 'zipcode')">Zipcode</button>
+  <button class="tablinks" onclick="search(event, 'county')">County</button>
+  <button class="tablinks" onclick="search(event, 'city')">City</button>
   <button class="tablinks" onclick="search(event, 'markerID')">Marker ID/Title</button>
 </div>
 <!-- Tab content -->
@@ -57,7 +57,7 @@ function search(evt, cityName) {
 </div>
 
 <div id="county" class="tabcontent">
-  <h3>County or City</h3>
+  <h3>County</h3>
   	<form action="/form/markersInCounty/submit">
             <label>County: </label>
             <select id="countydp" name="county" class="search">
@@ -133,11 +133,11 @@ function search(evt, cityName) {
     </script>
 </div>
 
-<div id="zipcode" class="tabcontent">
-  <h3>Zipcode</h3>
+<div id="city" class="tabcontent">
+  <h3>City</h3>
   	<form action="/form/submit" method="GET"> 
-            <label>Zipcode: </label>
-            <input type="text" name="zipcode" class="search">
+            <label>City: </label>
+            <input type="text" name="city" class="search">
             <input type="submit" name="submit" class="submit" value="Search">
             <input type="reset" value="Clear All">
     </form>
