@@ -104,3 +104,42 @@ background-color: #f1f1f1;
     padding-top: 20px;
     text-align: center;
 }
+#p-about {
+  text-align: center;
+}
+
+.column {
+  float: left;
+  width: 20%;
+  margin-left: 7px;
+  margin-bottom: 16px;
+  padding: 0 35px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #f1f1f1;
+  margin: 8px;
+  text-align: center;
+}
+
+.card img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.row {
+  margin-left: auto;
+  margin-right: auto;
+}
