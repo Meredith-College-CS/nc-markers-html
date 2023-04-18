@@ -1,5 +1,6 @@
 extends layout
-
+head 
+  link(rel='stylesheet', href='/stylesheets/images.css')
 block content
 
   //- -
@@ -36,16 +37,16 @@ block content
         //Add the pushpin to the map
         map.entities.push(pin);
       }
+  div(id='row')
+    if marker.stdPics
+      each picURL in marker.stdPics
+        p
+          img(width=400 src=`${picURL}` class="column")
 
-  if marker.stdPics
-    each picURL in marker.stdPics
-      p
-        img(width=400 src=`${picURL}` class="center")
-
-  if marker.cPics
-    each picURL in marker.cPics
-      p
-        img(width=400 src=`${picURL}` class="center")
+    if marker.cPics
+      each picURL in marker.cPics
+        p
+          img(width=400 src=`${picURL}` class="column")
 
 
   if marker.essay
