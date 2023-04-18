@@ -16,7 +16,7 @@ block content
     a(href='../county/'+marker.county) #{marker.county}
 
   if !(isNaN(marker.lat) || isNaN(marker.long)) 
-    div(id='myMap' style='position:relative;width:600px;height:400px;')
+    div(id='myMap' class = "center" style='position:relative;width:600px;height:400px;')
     script(type='text/javascript').
       function GetMap() {
         var map = new Microsoft.Maps.Map('#myMap', {
