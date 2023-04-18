@@ -68,4 +68,29 @@ router.get('/marker', async function(req, res, next) {
 });
 
 
+async function byPrefix(coll, prefix) {
+
+  const fields = {
+    '_id': 0,
+    'markerID': 1,
+    'title': 1
+  }
+
+  const sectionLimit = {"markerID" : {"$regex" : "^" + prefix}}
+  const markersCursor = coll.find(sectionLimit).project(fields).sort({"markerID":1})
+  const markers = await markersCursor.toArray()
+  return markers
+}
+
+/* GET markers prefix. */
+router.get('/markerPrefix/:prefix', async function(req, res, next) {
+  const markersColl = await  getCollection()
+  const markersMongo = await byPrefix(markersColl, req.params.prefix)
+  const markers = markersMongo.map(element => {
+    return element.markerID + " " + element.title
+  });
+  res.json(markers);
+});
+
+
 module.exports = router;
