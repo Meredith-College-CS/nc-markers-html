@@ -37,17 +37,18 @@ block content
         map.entities.push(pin);
       }
 
-  if marker.stdPics
-    each picURL in marker.stdPics
-      p
-        img(width=400 src=`${picURL}` class="center")
+  div(class="row")
+    if marker.stdPics
+      each picURL in marker.stdPics
+        p(class="imageRow")
+          img(width=400 height=400 src=`${picURL}` class="column")
 
-  if marker.cPics
-    each picURL in marker.cPics
-      p
-        img(width=400 src=`${picURL}` class="center")
+    if marker.cPics
+      each picURL in marker.cPics
+        p(class="imageRow")
+          img(width=400 height=400 src=`${picURL}` class="column")
 
 
-  if marker.essay
-    h2 Essay
-    p !{marker.essay}
+    if marker.essay
+      h2 Essay
+      p !{marker.essay}
