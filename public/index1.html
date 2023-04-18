@@ -95,14 +95,6 @@ function search(evt, cityName) {
           });
 
       </script>
-    
-    <form action="/form/markersInCity/submit">
-      <label>City: </label>
-      <select id="citydp" name="city" class="search">
-      </select>
-      <input type="submit" name="search" class="submit" value="Search"/>
-      <input type="reset" value="Clear All">
-    </form>
 
     <!-- display city drop down menu-->
     <script>
@@ -136,11 +128,13 @@ function search(evt, cityName) {
 
 <div id="city" class="tabcontent">
   <h3>City</h3>
-  	<form action="/form/submit" method="GET"> 
-            <label>City: </label>
-            <input type="text" name="city" class="search">
-            <input type="submit" name="submit" class="submit" value="Search">
-            <input type="reset" value="Clear All">
+            <form action="/form/markersInCity/submit">
+              <label>City: </label>
+              <select id="citydp" name="city" class="search">
+              </select>
+              <input type="submit" name="search" class="submit" value="Search"/>
+              <input type="reset" value="Clear All">
+            </form>
     </form>
 </div>
 
