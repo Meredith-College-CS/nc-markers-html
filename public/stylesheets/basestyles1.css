@@ -134,4 +134,7 @@ footer {
    clear: both;
    display: table;
  }
- 
+
+ .essay {
+   clear:left;
+ }
