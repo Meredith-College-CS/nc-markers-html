@@ -116,3 +116,25 @@ footer {
    max-width: 1000px;
    padding: 10px;
 }
+
+/* IMAGE STYLES (for each individual marker) */
+* {
+   box-sizing: border-box;
+ }
+ 
+ .column {
+   float: left;
+   width: 33.33%;
+   padding: 5px;
+ }
+ 
+ /* Clearfix (clear floats) */
+ .row::after {
+   content: "";
+   clear: both;
+   display: table;
+ }
+
+ .essay {
+   clear:left;
+ }

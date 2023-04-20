@@ -16,7 +16,7 @@ block content
     a(href='../county/'+marker.county) #{marker.county}
 
   if !(isNaN(marker.lat) || isNaN(marker.long)) 
-    div(id='myMap' style='position:relative;width:600px;height:400px;')
+    div(id='myMap' class = "center" style='position:relative;width:600px;height:400px;')
     script(type='text/javascript').
       function GetMap() {
         var map = new Microsoft.Maps.Map('#myMap', {
@@ -37,17 +37,18 @@ block content
         map.entities.push(pin);
       }
 
-  if marker.stdPics
-    each picURL in marker.stdPics
-      p
-        img(width=400 src=`${picURL}` class="center")
+  div(class="row")
+    if marker.stdPics
+      each picURL in marker.stdPics
+        p(class="imageRow")
+          img(width=400 height=400 src=`${picURL}` class="column")
 
-  if marker.cPics
-    each picURL in marker.cPics
-      p
-        img(width=400 src=`${picURL}` class="center")
+    if marker.cPics
+      each picURL in marker.cPics
+        p(class="imageRow")
+          img(width=400 height=400 src=`${picURL}` class="column")
 
 
-  if marker.essay
-    h2 Essay
-    p !{marker.essay}
+    if marker.essay
+      h2(class="essay") Essay
+      p(class="essay") !{marker.essay}
