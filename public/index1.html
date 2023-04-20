@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
   <link rel="stylesheet" href="nc-markers.css">
+  
 </head>
 <script>
 function search(evt, cityName) {
@@ -26,7 +27,10 @@ function search(evt, cityName) {
 </script>
 <html>
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+
 </head>
 <body>
 <div  class="home">
@@ -85,6 +89,8 @@ function search(evt, cityName) {
                         ${county}
                    </option>`); });
 
+             
+
             console.log(counties);
 
           })
@@ -142,7 +148,8 @@ function search(evt, cityName) {
   <h3>Marker ID/Title</h3>
   		<form action="form/searchById/submit" method="GET"> 
             <label>Marker Number: </label>
-            <select id="markerdp" name="markerid" class="search">
+            <select id="markerdp" name="markerid" data-placeholder="Enter a marker ID (like A-1) or a word from the title..." class="search">
+              <option value="">  </option>
             </select>
             <input type="submit" name="submit" class="submit" value="Search"/>
             <input type="reset" value="Clear All">
@@ -164,9 +171,16 @@ function search(evt, cityName) {
 
               $('#markerdp').append(`<option value="${marker.split(" ")[0]}">
                         ${marker}
-                  </option>`); });
+                  </option>`);
+               });
 
+               $('#markerdp').chosen({width : "40%",
+                                      no_results_text: "Not found in markers list: ",
+                                      disable_search_threshold: 10});   
+  
             console.log(markers);
+
+           
 
           })
           .catch((error) => {
