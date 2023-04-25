@@ -35,7 +35,8 @@
   body {
     background: #2980b9;
     color: #FFF;
-    font-family: Verdana, Helvetica, sans-serif;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+
     text-align: center;
     margin: 0;
   }
