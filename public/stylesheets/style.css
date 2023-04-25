@@ -2,7 +2,7 @@ body {
 	background-image: url("mountains.jpg");
 	background-size: cover;
     background-repeat: no-repeat;
-  font-family: Verdana, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
 }
 .tab {
   overflow: hidden;
