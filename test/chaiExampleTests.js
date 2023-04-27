@@ -5,8 +5,8 @@ let chai = require('chai');
 // use should-style assertions
 let should = chai.should();
 
-describe('Simple chai test', () => {
-    it('exercise should-style assertions', () => {
+describe('Chai should', () => {
+    it('correctly check array length and contents', () => {
        let b = [ 1, 2 , 3];
        b.length.should.be.eql(3);
        let weather = 'Today is sunny'

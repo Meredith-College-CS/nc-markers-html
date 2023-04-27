@@ -7,7 +7,7 @@ const { request } = require('../app');
 var router = express.Router();
 
 const DB = process.env.DB || 'nc-markers'
-const COLLECTION = 'Cities'
+const COLLECTION = process.env.CITIES_COLLECTION || 'Cities'
 const URL = process.env.URL || 'mongodb://localhost:27017'
 
 async function getCollection() {
