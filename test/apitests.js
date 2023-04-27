@@ -12,8 +12,8 @@ chai.use(chaiHttp);
 /*
   * Test the /api/counties route
   */
-describe('At the /api/counties endpoint', () => {
-    it('a GET request should return a list of all NC counties', (done) => {
+describe('The /api/counties endpoint', () => {
+    it('GET requests should return a list of all NC counties', (done) => {
         chai.request(server)
             .get('/api/counties')
             .end((err, res) => {
