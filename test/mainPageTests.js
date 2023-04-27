@@ -9,17 +9,22 @@ let server = require('../app');
 let should = chai.should();
 chai.use(chaiHttp);
 
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
+
 /*
-  * Test the /api/counties route
+  * Test the main page
   */
-describe('The /api/counties endpoint', () => {
-    it('GET requests should return a list of all NC counties', (done) => {
+describe('The main page', () => {
+    it('is welcoming', (done) => {
         chai.request(server)
-            .get('/api/counties')
+            .get('/')
             .end((err, res) => {
                 res.should.have.status(200);
-                res.body.should.be.an('array').that.includes("Pasquotank");
-                res.body.length.should.be.eql(100);
+                const dom = new JSDOM(res.text);
+                const greeting = dom.window.document.querySelector("#welcome").textContent;
+                greeting.should.be.a('string').that.matches(/^Welcome to/);
                 done();
             });
     });
