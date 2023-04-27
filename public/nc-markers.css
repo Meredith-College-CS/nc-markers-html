@@ -111,18 +111,17 @@ background-color: #f1f1f1;
 
 .column {
   float: left;
-  width: 20%;
+  width: 25%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 16px;
-  padding: 0 35px;
   position: relative;
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: #f1f1f1;
-  margin: 8px;
+  margin: 10px;
   text-align: center;
 }
 
@@ -147,4 +146,10 @@ background-color: #f1f1f1;
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+.table {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
