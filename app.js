@@ -7,7 +7,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var markerRouter = require('./routes/marker');
-var usersRouter = require('./routes/users');
 var countiesRouter = require('./routes/counties');
 var countyRouter = require('./routes/county');
 var formRouter = require('./routes/form');
@@ -43,7 +42,6 @@ app.use('/county', countyRouter);
 app.use('/keyword', keywordRouter);
 app.use('/marker', markerRouter);
 app.use('/form', formRouter);
-app.use('/users', usersRouter);
 app.use('/api', apiRouter);
 app.use('/cities', citiesRouter);
 

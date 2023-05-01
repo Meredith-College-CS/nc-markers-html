@@ -2,11 +2,8 @@ extends layout
 
 block content
 
-  //- -
-  //-   bingMapsKey = "Agc5lRxk6qqpv574eoOqw4K8FaJkbXtwo7RBxpPWw18fS_tCtL-uS2bp93HYI447"
-  
   if !(isNaN(marker.lat) || isNaN(marker.long)) 
-    script(type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap' async=true defer=true)
+    script(type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap' async=true defer=true)
 
   h1 #{marker.title}
 
