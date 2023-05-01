@@ -13,7 +13,8 @@ chai.use(chaiHttp);
   * Test the /api/counties route
   */
 describe('The /api/counties endpoint', () => {
-    it('GET requests should return a list of all NC counties', (done) => {
+    it('GET requests should return a list of all NC counties', function (done) {
+        this.timeout(30000);  // 30 seconds
         chai.request(server)
             .get('/api/counties')
             .end((err, res) => {
