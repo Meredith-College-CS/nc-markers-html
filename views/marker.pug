@@ -2,9 +2,6 @@ extends layout
 
 block content
 
-  //- -
-  //-   bingMapsKey = "Agc5lRxk6qqpv574eoOqw4K8FaJkbXtwo7RBxpPWw18fS_tCtL-uS2bp93HYI447"
-  
   if !(isNaN(marker.lat) || isNaN(marker.long)) 
     script(type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap' async=true defer=true)
 
@@ -49,6 +46,6 @@ block content
           img(width=400 height=400 src=`${picURL}` class="column")
 
 
-    if marker.essay
-      h2(class="essay") Essay
-      p(class="essay") !{marker.essay}
+  if marker.essay
+    h2(class="essay") Essay
+    p(class="essay") !{marker.essay}
