@@ -101,6 +101,9 @@ background-color: #f1f1f1;
     padding-right: 15%;
     float: left;
 }
+#welcome {
+  text-align: center;
+}
 
 #p-about {
   text-align: center;
