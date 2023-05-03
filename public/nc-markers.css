@@ -175,7 +175,7 @@ background-color: #f1f1f1;
 footer {
   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
   text-align: center;
-  position: relative;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
@@ -190,3 +190,20 @@ footer {
   padding: 10px;
 }
 
+.footer {
+  font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(119, 44, 3);
+  color: ivory;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+  min-width: 300px;
+  max-width: 3000px;
+  padding: 10px;
+}
