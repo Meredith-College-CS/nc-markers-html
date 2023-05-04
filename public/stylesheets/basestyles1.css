@@ -15,16 +15,17 @@ body {
 	background-color: ivory;
 	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 	background-color: white;
-    border-top: 3px solid rgb(51, 51, 51);
-    border-left: 3px solid rgb(51, 51, 51);
-    border-right: 3px solid rgb(51, 51, 51);
-    min-height: 100%;  
-    margin: 0px auto;
-    min-width: 320px;
-    max-width: 1020px;  
-    width: 100%;
-    line-height: 1.2em;
-    position: relative;
+   border-top: 3px solid rgb(51, 51, 51);
+   border-left: 3px solid rgb(51, 51, 51);
+   border-right: 3px solid rgb(51, 51, 51);
+   min-height: 100%;  
+   margin: 0px auto;
+   min-width: 320px;
+   max-width: 1020px;  
+   width: 100%;
+   line-height: 1.2em;
+   position: relative;
+   margin-bottom: 60px;
 }
 .home {
    width: 100%;
@@ -113,6 +114,7 @@ footer {
    align-items: center;
    margin: 0px auto;
    padding: 10px;
+   height: 20px;
 }
 
 /* IMAGE STYLES (for each individual marker) */

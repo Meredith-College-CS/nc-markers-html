@@ -3,6 +3,7 @@ body {
 	background-size: cover;
     background-repeat: no-repeat;
   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+  
 }
 .tab {
   overflow: hidden;
@@ -167,11 +168,9 @@ background-color: #f1f1f1;
   width: 100%;
 }
 
-.footer {
-  position: fixed;
-}
+/*
 
-/*footer {
+footer {
   clear: both;
   position: absolute;
   bottom: 0;
@@ -186,7 +185,7 @@ background-color: #f1f1f1;
 footer {
   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
   text-align: center;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
