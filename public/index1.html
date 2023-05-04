@@ -40,7 +40,7 @@ function search(evt, cityName) {
     <a id="nav-link" href="about.html">About</a>
 </div>
 
-<section class="search">
+<section class="searchOptions">
 <h1>Welcome to North Carolina Historical Markers! </h1>
 <p>Please use the search options below to find a historical marker</p>
 <!-- Tab links -->
@@ -63,7 +63,7 @@ function search(evt, cityName) {
 <div id="county" class="tabcontent">
   <h3>County</h3>
   	<form action="/form/markersInCounty/submit">
-            <label>County: </label>
+            <label id="county">County: </label>
             <select id="countydp" name="county" class="search">
             </select>
             <input type="submit" name="search" class="submit" value="Search"/>
@@ -118,7 +118,7 @@ function search(evt, cityName) {
                     ${city}
                </option>`); });
 
-          $('#citydp').chosen({width : "10%",
+          $('#citydp').chosen({width : "50%",
                                no_results_text: "Not found in cities list ",
                                disable_search_threshold: 10});   
   

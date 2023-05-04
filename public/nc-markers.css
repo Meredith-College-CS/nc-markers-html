@@ -41,7 +41,16 @@ body {
 }
 .search {
   background: rgba(241, 241, 241, .6);
+  width: 50%;
 }
+
+.searchOptions {
+  background: rgba(241, 241, 241, .6);
+  width: 50%;
+  margin-right: 300px;
+  margin-left: 300px;
+}
+
 .home {
     width: 100%;
     overflow: hidden;
