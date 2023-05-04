@@ -1,14 +1,14 @@
 body {
 	background-image: url("mountains.jpg");
 	background-size: cover;
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
   
 }
 .tab {
   overflow: hidden;
   border: 1px solid #ddd;
-  background-color: #e7e5e5;
+  background: rgba(241, 241, 241, .65);
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -40,7 +40,7 @@ body {
   border-top: none;
 }
 .search {
-background-color: #f1f1f1;
+  background: rgba(241, 241, 241, .6);
 }
 .home {
     width: 100%;
@@ -96,10 +96,9 @@ background-color: #f1f1f1;
   text-decoration: underline;
 }
 #p-home {
-    text-align: center;
     padding-top: 5px;
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 5%;
+    padding-right: 5%;
     float: left;
 }
 #welcome {
@@ -114,13 +113,17 @@ background-color: #f1f1f1;
   padding-top: 20px;
   text-align: center;
 }
-
+.home-paragraphs { 
+  margin-left: 15%;
+  margin-right: 15%;
+  background: rgba(241, 241, 241, .5);
+}
 #p-about {
   text-align: center;
   padding-top: 5px;
   padding-left: 15%;
   padding-right: 15%;
- float: left;
+  float: left;
 }
 
 .column {
