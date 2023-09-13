@@ -2,7 +2,7 @@
 	NC Markers Base Style Sheet
 */
 html {
-	background: lightblue url(mountains.jpg);
+	background:  url(mountains.jpg);
    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
    height: 100%;
    background-size: 100%;
