@@ -52,11 +52,13 @@ body {
 .home {
     width: 100%;
     overflow: hidden;
-    background-color: #f1f1f1;
+    /*background-color: #f1f1f1;*/
+    background-color:rgb(106, 29, 50)
+
 }
 .home a {
     float: left;
-    color: black;
+    color: white;
     text-align: center;
     padding-left: 16px;
     padding-right: 16px;
@@ -76,32 +78,7 @@ body {
   text-decoration: underline;
 }
 
-.home {
-    width: 100%;
-    overflow: hidden;
-    background-color: #f1f1f1;
-}
-.home a {
-    float: left;
-    color: black;
-    text-align: center;
-    padding-left: 16px;
-    padding-right: 16px;
-    text-decoration: none;
-    font-size: 18px;
-}
-#nav-link{
-    margin-top: 28px;
-}
-.logo {
-    height: auto;
-    width: auto;
-    max-height: 72px;
-    max-width: 250px;
-}
-.home a:hover {
-  text-decoration: underline;
-}
+
 #p-home {
     padding-top: 5px;
     padding-left: 5%;
@@ -199,7 +176,7 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgb(119, 44, 3);
+  background: rgb(106, 29, 50);
   color: ivory;
   display: flex;
   justify-content: center;
@@ -217,7 +194,7 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgb(119, 44, 3);
+  background: rgb(106, 29, 50);
   color: ivory;
   display: flex;
   justify-content: center;
