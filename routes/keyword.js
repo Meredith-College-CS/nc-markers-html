@@ -10,9 +10,7 @@ const DB = process.env.DB || 'nc-markers'
 const COLLECTION = process.env.COLLECTION || 'markers'
 const URL = process.env.URL || 'mongodb://localhost:27017'
 
-async function getCollection() {
-  const mongo = new MongoClient(URL)
-  await mongo.connect()
+async function getCollection(mongo) {
   const db = mongo.db(DB)
   return collection = db.collection(COLLECTION)
 }
@@ -39,10 +37,21 @@ async function getMarkersMentioning(coll, keyword) {
 
 /* GET home page. */
 router.get('/:keyword', async function(req, res, next) {
-  const markersColl = await getCollection()
-  const markersWithKeyword = await getMarkersMentioning(markersColl,  req.params.keyword)
+  const mongo = new MongoClient(URL)
+  try {
+    await mongo.connect()
 
-  res.render('keyword', { keyword: req.params.keyword, markers: markersWithKeyword });
+    const markersColl = await getCollection(mongo)
+    const markersWithKeyword = await getMarkersMentioning(markersColl,  req.params.keyword)
+    res.render('keyword', { keyword: req.params.keyword, markers: markersWithKeyword });
+  }
+  catch (err) {
+    console.error(err)
+    res.sendStatus(500);
+  }
+  finally {
+    await mongo.close()
+  }
 });
 
 module.exports = router;

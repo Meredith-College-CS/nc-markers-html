@@ -9,9 +9,8 @@ const COLLECTION = process.env.COLLECTION || 'markers'
 const URL = process.env.URL || 'mongodb://localhost:27017'
 const MAPS_KEY = process.env.MAPS_KEY || "add the bings map key to your .env file"
 
-async function getCollection() {
-  const mongo = new MongoClient(URL)
-  await mongo.connect()
+async function getCollection(mongo) {
+
   const db = mongo.db(DB)
   return collection = db.collection(COLLECTION)
 }
@@ -25,9 +24,20 @@ async function getOneDoc(coll, id) {
 
 /* GET home page. */
 router.get('/:markerID', async function(req, res, next) {
-  const markersColl = await getCollection()
-  const markerDoc = await getOneDoc(markersColl, req.params.markerID)
-  res.render('marker', { title: 'North Carolina Historical Markers', marker: markerDoc, keys: { bingMapsKey: MAPS_KEY}});
+  const mongo = new MongoClient(URL)
+  try {
+    await mongo.connect()
+    const markersColl = await getCollection(mongo)
+    const markerDoc = await getOneDoc(markersColl, req.params.markerID)
+    res.render('marker', { title: 'North Carolina Historical Markers', marker: markerDoc, keys: { bingMapsKey: MAPS_KEY}});
+  }
+  catch (err) {
+    console.error(err)
+    res.sendStatus(500);
+  }
+  finally {
+    await mongo.close()
+  }
 });
 
 module.exports = router;

@@ -10,9 +10,7 @@ const DB = process.env.DB || 'nc-markers'
 const COLLECTION = process.env.COLLECTION || 'markers'
 const URL = process.env.URL || 'mongodb://localhost:27017'
 
-async function getCollection() {
-  const mongo = new MongoClient(URL)
-  await mongo.connect()
+async function getCollection(mongo) {
   const db = mongo.db(DB)
   return collection = db.collection(COLLECTION)
 }
@@ -36,12 +34,23 @@ async function getListOfCounties(coll) {
 
 /* GET counties list. */
 router.get('/counties', async function(req, res, next) {
-  const markersColl = await  getCollection()
-  const countiesMongo = await getListOfCounties(markersColl)
-  const counties = countiesMongo.map(element => {
-    return element._id
-  });
-  res.json(counties);
+  const mongo = new MongoClient(URL)
+  try {
+    await mongo.connect()
+    const markersColl = await  getCollection(mongo)
+    const countiesMongo = await getListOfCounties(markersColl)
+    const counties = countiesMongo.map(element => {
+      return element._id
+    });
+    res.json(counties);
+  }
+  catch (err) {
+    console.error(err)
+    res.sendStatus(500);
+  }
+  finally {
+    await mongo.close()
+  }
 });
 
 async function getListOfMarkers(coll) {
@@ -59,12 +68,23 @@ async function getListOfMarkers(coll) {
 
 /* GET markers list. */
 router.get('/marker', async function(req, res, next) {
-  const markersColl = await  getCollection()
-  const markersMongo = await getListOfMarkers(markersColl)
-  const markers = markersMongo.map(element => {
-    return element.markerID + " " + element.title
-  });
-  res.json(markers);
+  const mongo = new MongoClient(URL)
+  try {
+    await mongo.connect()
+    const markersColl = await  getCollection(mongo)
+    const markersMongo = await getListOfMarkers(markersColl)
+    const markers = markersMongo.map(element => {
+      return element.markerID + " " + element.title
+    });
+    res.json(markers);
+  }
+  catch (err) {
+    console.error(err)
+    res.sendStatus(500);
+  }
+  finally {
+    await mongo.close()
+  }
 });
 
 
@@ -84,12 +104,23 @@ async function byPrefix(coll, prefix) {
 
 /* GET markers prefix. */
 router.get('/markerPrefix/:prefix', async function(req, res, next) {
-  const markersColl = await  getCollection()
-  const markersMongo = await byPrefix(markersColl, req.params.prefix)
-  const markers = markersMongo.map(element => {
-    return element.markerID + " " + element.title
-  });
-  res.json(markers);
+  const mongo = new MongoClient(URL)
+  try {
+    await mongo.connect()
+    const markersColl = await  getCollection(mongo)
+    const markersMongo = await byPrefix(markersColl, req.params.prefix)
+    const markers = markersMongo.map(element => {
+      return element.markerID + " " + element.title
+    });
+    res.json(markers);
+  }
+  catch (err) {
+    console.error(err)
+    res.sendStatus(500);
+  }
+  finally {
+    await mongo.close()
+  }
 });
 
 

@@ -10,9 +10,7 @@ const DB = process.env.DB || 'nc-markers'
 const COLLECTION = process.env.COLLECTION || 'markers'
 const URL = process.env.URL || 'mongodb://localhost:27017'
 
-async function getCollection() {
-  const mongo = new MongoClient(URL)
-  await mongo.connect()
+async function getCollection(mongo) {
   const db = mongo.db(DB)
   return collection = db.collection(COLLECTION)
 }
@@ -32,10 +30,20 @@ async function getMarkersInCounty(coll, county) {
   
 /* GET home page. */
 router.get('/:county', async function(req, res, next) {
-  const markersColl = await getCollection()
-  const countyMarkers = await getMarkersInCounty(markersColl,  req.params.county)
-
-  res.render('county', { county: req.params.county, markers: countyMarkers });
+  const mongo = new MongoClient(URL)
+  try {
+    await mongo.connect()
+    const markersColl = await getCollection(mongo)
+    const countyMarkers = await getMarkersInCounty(markersColl,  req.params.county)
+    res.render('county', { county: req.params.county, markers: countyMarkers });
+  }
+  catch (err) {
+    console.error(err)
+    res.sendStatus(500);
+  }
+  finally {
+    await mongo.close()
+  }
 });
 
 module.exports = router;
